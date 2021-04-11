@@ -37,7 +37,7 @@ std::function<void()> work_queue::dequeue() {
     {
         std::lock_guard<std::mutex> lock_guard(tasks_lock);
 
-        task = tasks.back();
+        task = tasks.front();
         tasks.pop();
     }
 
